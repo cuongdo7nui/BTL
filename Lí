@@ -1,0 +1,62 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# ===== Input =====
+v0 = float(input("Nhập vận tốc ban đầu v0 (m/s): "))
+v_e = float(input("Nhập vận tốc khí phụt v' (m/s): "))
+k = float(input("Nhập tốc độ đốt nhiên liệu dm/dt (<0) (kg/s): "))
+m0 = float(input("Nhập khối lượng ban đầu m0 (kg): "))
+y0 = float(input("Nhập độ cao ban đầu (m): "))
+
+g = 9.81
+m_dry = 0.1*m0                     # 10% khối lượng khô
+t_fuel = (m0 - m_dry)/(-k)         # thời gian đốt nhiên liệu
+
+
+# ===== TÍCH PHÂN SỐ TỪ PHƯƠNG TRÌNH GỐC =====
+def integral_log(t):
+    N = 1000
+    ts = np.linspace(0, t, N)
+    vals = np.log(1 + k*ts/m0)
+    return np.trapz(vals, ts)
+
+
+# ===== v(t) từ chứng minh =====
+def v_func(t):
+    return v0 - v_e*np.log(1 + k*t/m0) - g*t
+
+
+# ===== y(t) từ chứng minh (KHÔNG dùng công thức rút gọn) =====
+def y_func(t):
+    return y0 + v0*t - 0.5*g*t**2 - v_e * integral_log(t)
+
+
+# ===== Tính y(t) =====
+t_vals = np.linspace(0, t_fuel, 400)
+y_vals = np.array([y_func(t) for t in t_vals])
+
+# Thời điểm đạt cực đại
+idx_max = np.nanargmax(y_vals)
+t_max = t_vals[idx_max]
+y_max = y_vals[idx_max]
+
+print(f"Độ cao lớn nhất: {y_max:.2f} m tại t = {t_max:.2f} s")
+
+
+# ===== VẼ ĐỒ THỊ =====
+plt.figure(figsize=(10, 6))
+plt.plot(t_vals, y_vals, linewidth=2, label="Độ cao y(t)")
+
+# ĐƯỜNG NÉT ĐỨT THỜI ĐIỂM CỰC ĐẠI
+plt.axvline(x=t_max, color='r', linestyle='--', linewidth=1.5,
+            label=f"t đạt y_max = {t_max:.2f} s")
+
+# ĐIỂM CỰC ĐẠI
+plt.plot(t_max, y_max, 'ro')
+
+plt.title("Đồ thị độ cao y(t)")
+plt.xlabel("Thời gian t (s)")
+plt.ylabel("Độ cao y (m)")
+plt.grid(True)
+plt.legend()
+plt.show()
