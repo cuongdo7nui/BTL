@@ -1,0 +1,125 @@
+\documentclass[12pt,a4paper]{article}
+ \usepackage[utf8]{vietnam}
+ \usepackage{times}
+ \usepackage{amsmath}
+ \usepackage{amsfonts}
+ \usepackage{amssymb}
+ \begin{document}
+
+\subsection*{14}
+Một sợi xích dài $5\,\text{m}$ và có khối lượng $30\,\text{kg}$ nằm trên mặt đất.  
+Mật độ khối lượng của nó là: 
+\[
+\mu = \frac{30}{5} = 6 \,\text{(kg/m)}.
+\]
+Xét một phần tử chiều dài $dy$, công vi phân khi nâng nó lên độ cao $y$:
+\[
+dW = \mu g y\,dy.
+\]
+Công cần để nâng một đầu xích lên cao $2\,\text{m}$:
+\[
+W = \int_{0}^{2} 6g y\,dy 
+= 6g\left[\frac{y^2}{2}\right]_{0}^{2}
+= 6g(2)
+= 12g
+= 117.6 \,\text{(J)}.
+\]
+
+\subsection*{15}
+Một dây xích có mật độ $5\,\text{lb/ft}$ được treo trên tời cách đất $12\,\text{ft}$. 
+Gọi $y$ là khoảng cách từ một phần tử dây xích $dy$ tới mặt đất. Công vi phân để nâng nó lên tới tời là:
+\[
+dW = 5(12-y)\,dx.
+\]
+Công tổng cộng là:
+\[
+W = \int_{0}^{12} 5(12-y)\,dy
+= 5\left[12y - \frac{y^2}{2}\right]_{0}^{12}
+= 360 \,\text{(ft·lb)}.
+\]
+
+\subsection*{16}
+Theo đề thì dây xích dài $13\,\text{ft}$. Gọi $x$ là chiều dài dây xích đã được kéo vào so với tời $(0 \le x \le 4)$.
+\\
+Trọng lượng phần còn treo là:
+\[
+F\left( x \right) = 5\left( {13 - x} \right) \,\text{(lb)}
+\]
+Công vi phân để kéo một đoạn $dx$:
+\[
+dW = F\left( x \right)dx = 5\left( {13 - x} \right)dx
+\]
+Công để kéo sợ xích vào 4 ft:
+\[
+W = \int_0^4 {5\left( {13 - x} \right)dx}
+= 5\left[ {13x - \frac{1}{2}x^2 } \right]_{0}^{4} 
+= 5\left( {52 - 8} \right)
+= 220 \,\text{(ft.lb)}
+\]
+
+\subsection*{17}
+Công để nâng cái dầm nặng $200\,\text{lb}$ lên độ cao $60\,\text{ft}$:
+\[
+W_{\text{dầm}} = 200\cdot60 = 12000 \,\text{ft·lb}.
+\]
+
+Công để kéo sợi xích có mật độ $2\,\text{lb/ft}$ và dài $60\,\text{ft}$:
+\[
+W_{\text{xích}}
+= \int_{0}^{60} 2x\,dx
+= \left[x^2\right]_{0}^{60}
+= 3600 \,\text{ft·lb}.
+\]
+
+Do đó công tổng cộng là:
+\[
+W = 12000 + 3600 = 15600 \,\text{ft·lb}.
+\]
+
+\subsection*{18}
+Diện tích mặt đáy bể:
+\[
+A = 4 . 2 = 8 \,\text({ft}^2).
+\]
+Ở độ cao $y$ so với đáy bể, xét một vi phân thể tích $dV = 8\,dy$ có trọng lượng:
+\[
+dF = 62.4(8)\,dy = 499.2\,dy.
+\]
+Công để rút phần nước đó qua miệng bể giống như công nâng khối nước đó lên độ cao $3 - y$ ft:
+\[
+dW = 499.2(3-y)\,dy.
+\]
+Công để rút hết nước ra khỏi bể:
+\[
+W = \int_0^3 499.2(3-y)\,dy
+= 499.2\left[3y - \frac{y^2}{2}\right]_0^3
+= 2246.4 \,\text{(ft·lb)}.
+\]
+
+\subsection*{20}
+Gọi $y$ là khoảng cách thùng được kéo lên tính từ đáy, $ % 
+y  \in \left[ {0,30} \right] $.\\
+Thời gian kéo thùng: $ t = \frac{y}{v} = \frac{y}{2}$ \,\text{(s)} \\
+Trọng lượng phần nước còn lại trong thùng khi kéo lên được $y$ ft:
+\[
+P\left( y \right) = 40 - 0,2.\frac{y}{2}
+= 40 - 0,1y  \,\text{(lb)}
+\]
+Tổng trọng lượng của nước và thùng tại vị trí y:
+\[
+F\left( y \right) = 4 + P\left( y \right)
+= 4 + 40 - 0,1y
+= 44 - 0,1y\,\text{(lb)};
+\]
+Công tổng cộng để kéo thùng nước lên hết:
+\[
+W = \int_0^{30} {(44 - 0,1y)dy} 
+=  \left[ {44y - 0,1\frac{{y^2 }}{2}} \right]_0^{30} 
+= 1320 -45=1275\,\text{(ft.lb)}
+\]
+
+
+
+
+
+ \end{document}
